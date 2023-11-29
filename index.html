@@ -21,12 +21,16 @@
     height: auto;
     }
     .carrousel_parent-ecrans {
+     overflow-x: scroll;
+     scroll-behavior: smooth;
+     scroll-snap-type: x mandatory;
     /* aligne horizontalement les enfants */
     display: flex;
     /* largeur du parent */
     width: 100%;
     }
     .carrousel_ecran {
+     scroll-snap-align: start;
     /* largeur du parent pour chaque enfant */
     width: 100%;
     /* permet de garder toute la largeur du parent */
