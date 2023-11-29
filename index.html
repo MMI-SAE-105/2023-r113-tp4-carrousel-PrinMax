@@ -73,7 +73,8 @@
 </head>
 <body>
  <div class="carrousel" x-data="{overflow-x: scroll;}">
-    <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant"><</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant">></button>
+    <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant" @click="p=$refs.parent ; p.scrollLeft -= p.clientWidth">
+    &lt;</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant" @click="p=$refs.parent ; p.scrollLeft += p.clientWidth">></button>
     <div class="carrousel_parent-ecrans" x-ref="parent">
         <div id="ecran-1" class="carrousel_ecran">
             <figure>
