@@ -40,14 +40,41 @@
     /* enlève les marges par défaut */
     margin: 0;
     }
+    .carrousel {
+  position: relative;
+}
 
+.carrousel_btn {
+  position: absolute;
+  top: 50%;
+  top: calc(
+    min(500px, 100vw) / 16 * 9 / 2 + 1rem
+  ); /* centre verticalement ~50% vertical */
+  transform: translateY(-50%); /* methode du point mort */
+  width: 2rem;
+  height: 2rem;
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  color: #fff;
+}
+
+.carrousel_btn-avant {
+  left: 0;
+}
+
+.carrousel_btn-apres {
+  right: 0;
+}
     </style>
     <title>Carrousel</title>
 </head>
 <body>
  <div class="carrousel" x-data="{overflow-x: scroll;}">
     <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant"><</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant">></button>
-    <div class="carrousel_parent-ecrans">
+    <div class="carrousel_parent-ecrans" x-ref="parent">
         <div id="ecran-1" class="carrousel_ecran">
             <figure>
                 <img src="https://picsum.photos/seed/1/500/300" alt="image ecran 1">
