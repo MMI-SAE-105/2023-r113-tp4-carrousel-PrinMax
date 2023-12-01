@@ -68,11 +68,25 @@
 .carrousel_btn-apres {
   right: 0;
 }
+/* en vrac :
+0 0 1rem display center flex gap 
+justify-content list-style margin none padding
+*/
+.carroussel_liste-liens {
+ display: flex; /* aligne horizontalement les enfants */
+justify-content: center; /* centre horizontalement les enfants */
+margin: 0; /* enlève les marges par défaut */
+padding: 0; /* enlève les padding par défaut */
+list-style: none; /* enlève les puces par défaut */
+gap: 1rem; /* espace entre les enfants */
+}
     </style>
     <title>Carrousel</title>
 </head>
 <body>
- <div class="carrousel" x-data="{overflow-x: scroll;}">
+ <div class="carrousel" x-data="{
+hrefCourant: '#ecran-1',
+}">
     <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant" @click="p=$refs.parent ; p.scrollLeft -= p.clientWidth">
     &lt;</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant" @click="p=$refs.parent ; p.scrollLeft += p.clientWidth">></button>
     <div class="carrousel_parent-ecrans" x-ref="parent">
