@@ -80,19 +80,26 @@ padding: 0; /* enlève les padding par défaut */
 list-style: none; /* enlève les puces par défaut */
 gap: 1rem; /* espace entre les enfants */
 }
+.caroussel_lien {
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    padding: 2px;
+    position: relative;
+}
     </style>
     <title>Carrousel</title>
 </head>
 <body>
  <div class="carrousel" x-data="{
-hrefCourant: '#ecran-1',
-}">
+hrefCourant: '#ecran-1',}">
     <button class="carrousel_btn carrousel_btn-avant" aria-label="slide précedant" @click="p=$refs.parent ; p.scrollLeft -= p.clientWidth">
     &lt;</button><button class="carrousel_btn carrousel_btn-apres" aria-label="slide suivant" @click="p=$refs.parent ; p.scrollLeft += p.clientWidth">></button>
     <div class="carrousel_parent-ecrans" x-ref="parent">
         <div id="ecran-1" class="carrousel_ecran">
             <figure>
                 <img src="https://picsum.photos/seed/1/500/300" alt="image ecran 1">
+                <a href="#ecran-1" :class="{actif:hrefCourant==='#ecran-1'}"></a>
                 <figcaption>Ecran 1</figcaption>
             </figure>
         </div>
@@ -121,7 +128,7 @@ hrefCourant: '#ecran-1',
             </figure>
         </div>
     </div>
-    <ul class="caroussel_liste-liens">
+    <ul class="carroussel_liste-liens">
         <li><a href="#ecran-1" class="caroussel_lien">ecran 1</a></li>
         <li><a href="#ecran-2" class="caroussel_lien">ecran 2</a></li>
         <li><a href="#ecran-3" class="caroussel_lien">ecran 3</a></li>
